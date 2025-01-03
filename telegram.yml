@@ -12,7 +12,7 @@ jobs:
     - name: Send Telegram Notification
       env:
         TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
-        CHAT_ID: "<1002476100994>"
+        CHAT_ID: "<-1002476100994>"
       run: |
         MESSAGE="🚀 A new commit has been pushed to the main branch."
         curl -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
