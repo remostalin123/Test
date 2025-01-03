@@ -1,17 +1,18 @@
-name: Send Telegram Message
+name: Telegram Notification
 
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to the main branch
 
 jobs:
-  send-message:
-    runs-on: ubuntu-latest
+  notify:
+    runs-on: ubuntu-22.04  # Or you can use ubuntu-24.04
+
     steps:
-      - name: Send Telegram Message
-        uses: s00d/fast-telegram-action@v9
-        with:
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          to: ${{ secrets.TELEGRAM_TO }}
-          message: 'This is a test message from GitHub Actions!'
+      - name: Send Telegram message
+        run: |
+          MESSAGE="🚀 A new commit has been pushed to the main branch."
+          curl -s -X POST "https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage" \
+            -H "Content-Type: application/json" \
+            -d "{\"chat_id\": \"${{ secrets.TELEGRAM_CHAT_ID }}\", \"text\": \"$MESSAGE\"}"
