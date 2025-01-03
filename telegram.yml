@@ -7,7 +7,7 @@ on:
 
 jobs:
   notify:
-    runs-on: ubuntu-22.04  # or ubuntu-24.04, depending on which version you prefer
+    runs-on: ubuntu-22.04  # You can change this to ubuntu-24.04 if you want to test
 
     steps:
       - name: Send Telegram message
