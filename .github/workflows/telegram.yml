@@ -1,0 +1,20 @@
+name: Send Message to Telegram
+
+on:
+  push:
+    branches:
+      - main  # Trigger workflow on pushes to the main branch
+
+jobs:
+  notify-telegram:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send Telegram Notification
+      env:
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        CHAT_ID: "<7920709529>"
+      run: |
+        MESSAGE="🚀 A new commit has been pushed to the main branch."
+        curl -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+          -H "Content-Type: application/json" \
+          -d '{"chat_id": "'$CHAT_ID'", "text": "'$MESSAGE'"}'
