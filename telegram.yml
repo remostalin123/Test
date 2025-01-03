@@ -3,11 +3,11 @@ name: Telegram Notification
 on:
   push:
     branches:
-      - main
+      - main  # Trigger on push to the main branch
 
 jobs:
   notify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04  # or ubuntu-24.04, depending on which version you prefer
 
     steps:
       - name: Send Telegram message
