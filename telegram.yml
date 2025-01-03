@@ -15,6 +15,6 @@ jobs:
         CHAT_ID: "<7542777986>"
       run: |
         MESSAGE="🚀 A new commit has been pushed to the main branch."
-        curl -X POST "https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage" \
+        curl -X POST "https://api.telegram.org/bot${7542777986:AAHqTaj09oqFJ3TXGF5xd88kAkmwwWs8xFc}/sendMessage" \
           -H "Content-Type: application/json" \
           -d '{"chat_id": "'$CHAT_ID'", "text": "'$MESSAGE'"}'
