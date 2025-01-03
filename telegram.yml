@@ -1,4 +1,4 @@
-name: Telegram Notification
+name: Telegram Notification and Build
 
 on:
   push:
@@ -7,9 +7,12 @@ on:
 
 jobs:
   notify:
-    runs-on: ubuntu-22.04  # Or you can use ubuntu-24.04
+    runs-on: ubuntu-22.04  # Switch back to Ubuntu 22.04 for compatibility
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - name: Send Telegram message
         run: |
           MESSAGE="🚀 A new commit has been pushed to the main branch."
